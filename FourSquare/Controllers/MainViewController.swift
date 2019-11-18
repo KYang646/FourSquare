@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
     let initialLocation = CLLocation(latitude: 40.742054, longitude: -73.769417)
     let searchRadius: CLLocationDistance = 2000
     var annotations = [MKAnnotation]()
+    var currentLatLng = ""
     
     
     //MARK: Actions
@@ -69,13 +70,27 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func loadData(search: String,latLng: String) {
+        DispatchQueue.main.async {
+            LocationsAPI.manager.getLocations(search: search, latLng: latLng){ (result) in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let venue):
+                    self.locations = venue
+                }
+            }
+        }
+    }
+    
     //MARK: Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
         daMap.delegate = self
+        daCollection.delegate = self
+        daCollection.dataSource = self
     }
     
     
@@ -127,6 +142,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    return CGSize(width: 135, height: 135)
+}
     
     
 
@@ -148,44 +167,64 @@ extension MainViewController: UISearchBarDelegate {
         searchField.resignFirstResponder()
     }
     
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//         //create activity indicator
+//        let activityIndicator = UIActivityIndicatorView()
+//        activityIndicator.center = self.view.center
+//        activityIndicator.startAnimating()
+//        self.view.addSubview(activityIndicator)
+//
+//        searchBar.resignFirstResponder()
+//
+//        //search request
+//        let searchRequest = MKLocalSearch.Request()
+//        searchRequest.naturalLanguageQuery = searchBar.text
+//        let activeSearch = MKLocalSearch(request: searchRequest)
+//        activeSearch.start { (response, error) in
+//            activityIndicator.stopAnimating()
+//
+//            if response == nil {
+//                print(error!)
+//            } else {
+//                //remove annotations
+//                let annotations = self.daMap.annotations
+//                self.daMap.removeAnnotations(annotations)
+//
+//                //get data
+//                let latitud = response?.boundingRegion.center.latitude
+//                let longitud = response?.boundingRegion.center.longitude
+//
+//                let newAnnotation = MKPointAnnotation()
+//                newAnnotation.title = searchBar.text
+//                newAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitud!, longitude: longitud!)
+//                self.daMap.addAnnotation(newAnnotation)
+//
+//                //to zoom in the annotation
+//                let coordinateRegion = MKCoordinateRegion.init(center: newAnnotation.coordinate, latitudinalMeters: self.searchRadius * 2.0, longitudinalMeters: self.searchRadius * 2.0)
+//                self.daMap.setRegion(coordinateRegion, animated: true)
+//            }
+//        }
+//
+//    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-         //create activity indicator
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.center = self.view.center
-        activityIndicator.startAnimating()
-        self.view.addSubview(activityIndicator)
-        
-        searchBar.resignFirstResponder()
-        
-        //search request
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = searchBar.text
+        searchRequest.naturalLanguageQuery = searchField.text
         let activeSearch = MKLocalSearch(request: searchRequest)
         activeSearch.start { (response, error) in
-            activityIndicator.stopAnimating()
-            
             if response == nil {
                 print(error!)
-            } else {
-                //remove annotations
-                let annotations = self.daMap.annotations
-                self.daMap.removeAnnotations(annotations)
-                
-                //get data
-                let latitud = response?.boundingRegion.center.latitude
-                let longitud = response?.boundingRegion.center.longitude
-                
-                let newAnnotation = MKPointAnnotation()
-                newAnnotation.title = searchBar.text
-                newAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitud!, longitude: longitud!)
-                self.daMap.addAnnotation(newAnnotation)
-                
-                //to zoom in the annotation
-                let coordinateRegion = MKCoordinateRegion.init(center: newAnnotation.coordinate, latitudinalMeters: self.searchRadius * 2.0, longitudinalMeters: self.searchRadius * 2.0)
-                self.daMap.setRegion(coordinateRegion, animated: true)
+            }else {
+                let lat = response?.boundingRegion.center.latitude
+                let lng = response?.boundingRegion.center.longitude
+                self.currentLatLng = "\(lat!),\(lng!)"
+                self.daMap.removeAnnotations(self.daMap.annotations)
+                self.annotations.removeAll()
+                self.loadData(search: self.searchField.text!, latLng: self.currentLatLng)
             }
         }
-
+        searchBar.resignFirstResponder()
+        
     }
     
 }
