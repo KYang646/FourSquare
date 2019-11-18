@@ -91,6 +91,46 @@ extension MainViewController: MKMapViewDelegate {
     
 }
 
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return locations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = daCollection.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCoCell
+            let data = locations[indexPath.row]
+            ImageAPI.manager.getImages(ID: data.id! ){ (result) in
+                DispatchQueue.main.async {
+                    switch result{
+                    case .failure(let error):
+                        print(error)
+                        cell.coImage.image = UIImage(named: "noImage")
+                    case .success(let image):
+                        ImageHelper.shared.getImage(urlStr: image.first?.imageInfo ?? "") { (result) in
+                            DispatchQueue.main.async {
+                                switch result{
+                                case .failure(let error):
+                                    print(error)
+                                    cell.coImage.image = UIImage(named: "noImage")
+                                case .success(let image):
+                                    cell.coImage.image = image
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return cell
+            
+        }
+    }
+    
+    
+    
+
+
 
     //MARK: SearchBar delegates
 extension MainViewController: UISearchBarDelegate {
