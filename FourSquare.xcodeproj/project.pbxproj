@@ -14,6 +14,9 @@
 		74364E92237C58F0005AA90C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364E91237C58F0005AA90C /* ImageHelper.swift */; };
 		74364E99237CCA6B005AA90C /* ResultsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364E98237CCA6B005AA90C /* ResultsListViewController.swift */; };
 		74364E9B237F6E7C005AA90C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364E9A237F6E7C005AA90C /* Locations.swift */; };
+		74364E9E23825AD6005AA90C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364E9D23825AD6005AA90C /* Image.swift */; };
+		74364EA023825EB0005AA90C /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364E9F23825EB0005AA90C /* ImageModel.swift */; };
+		74364EA223825F2C005AA90C /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74364EA123825F2C005AA90C /* Collections.swift */; };
 		74CF7727237B46EF00CE9623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF7726237B46EF00CE9623 /* AppDelegate.swift */; };
 		74CF7729237B46EF00CE9623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF7728237B46EF00CE9623 /* SceneDelegate.swift */; };
 		74CF772E237B46EF00CE9623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CF772C237B46EF00CE9623 /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		74364E91237C58F0005AA90C /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		74364E98237CCA6B005AA90C /* ResultsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsListViewController.swift; sourceTree = "<group>"; };
 		74364E9A237F6E7C005AA90C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		74364E9D23825AD6005AA90C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		74364E9F23825EB0005AA90C /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		74364EA123825F2C005AA90C /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		74CF7723237B46EF00CE9623 /* FourSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CF7726237B46EF00CE9623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74CF7728237B46EF00CE9623 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				74364E8C237C589B005AA90C /* NetworkHelper.swift */,
+				74364E9D23825AD6005AA90C /* Image.swift */,
 				74364E8F237C58CE005AA90C /* AppError.swift */,
 				74364E91237C58F0005AA90C /* ImageHelper.swift */,
 			);
@@ -93,6 +100,9 @@
 		74364E9C237F6E84005AA90C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				74364E9A237F6E7C005AA90C /* Locations.swift */,
+				74364EA123825F2C005AA90C /* Collections.swift */,
+				74364E9F23825EB0005AA90C /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				74CF7726237B46EF00CE9623 /* AppDelegate.swift */,
-				74364E9A237F6E7C005AA90C /* Locations.swift */,
 				74CF7728237B46EF00CE9623 /* SceneDelegate.swift */,
 				74364E9C237F6E84005AA90C /* Models */,
 				74CF772C237B46EF00CE9623 /* Main.storyboard */,
@@ -245,12 +254,15 @@
 				74364E9B237F6E7C005AA90C /* Locations.swift in Sources */,
 				74364E8B237B8953005AA90C /* CollectionViewController.swift in Sources */,
 				74364E89237B8903005AA90C /* MainViewController.swift in Sources */,
+				74364EA223825F2C005AA90C /* Collections.swift in Sources */,
 				74364E90237C58CE005AA90C /* AppError.swift in Sources */,
 				74364E8D237C589B005AA90C /* NetworkHelper.swift in Sources */,
 				74CF7727237B46EF00CE9623 /* AppDelegate.swift in Sources */,
 				74CF7729237B46EF00CE9623 /* SceneDelegate.swift in Sources */,
 				74364E92237C58F0005AA90C /* ImageHelper.swift in Sources */,
 				74364E99237CCA6B005AA90C /* ResultsListViewController.swift in Sources */,
+				74364EA023825EB0005AA90C /* ImageModel.swift in Sources */,
+				74364E9E23825AD6005AA90C /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
