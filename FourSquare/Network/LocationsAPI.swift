@@ -15,7 +15,7 @@ class LocationsAPI {
 
     func getLocations(search: String,latLng: String, completionHandler: @escaping (Result<[Location], AppError>) -> ()) {
         let fixedString = search.replacingOccurrences(of: " ", with: "-")
-        let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(latLng)&client_id=Q0NW3DHOCABZEKYJIEZYFN2JJDBXORYX1MFFYLGA4AFPCPUZ&client_secret=YETGX2Q0UE4HMV0BZGSC0FXWDOJFXLNJVKMEBI2LEJKQQULM&v=20191104&query=\(fixedString)&limit=2&radius=1000"
+        let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(latLng)&client_id=\(Secrets.clientID)&client_secret=\(Secrets.clientSecret)&v=20191104&query=\(fixedString)&limit=2&radius=1000"
         print(urlString)
        
         guard let url = URL(string: urlString) else {

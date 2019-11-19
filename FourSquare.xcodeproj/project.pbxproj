@@ -27,6 +27,7 @@
 		74CF773E237B46F200CE9623 /* FourSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF773D237B46F200CE9623 /* FourSquareTests.swift */; };
 		74DB798C23849AE800DC80AB /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB798B23849AE800DC80AB /* ResultsTableViewCell.swift */; };
 		74DB798E23849E3E00DC80AB /* AnimatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */; };
+		74DB79902384A3B500DC80AB /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB798F2384A3B500DC80AB /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		74CF773F237B46F200CE9623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74DB798B23849AE800DC80AB /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorFactory.swift; sourceTree = "<group>"; };
+		74DB798F2384A3B500DC80AB /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				74CF7726237B46EF00CE9623 /* AppDelegate.swift */,
 				74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */,
+				74DB798F2384A3B500DC80AB /* Secrets.swift */,
 				74CF7728237B46EF00CE9623 /* SceneDelegate.swift */,
 				74364E9C237F6E84005AA90C /* Models */,
 				74CF772C237B46EF00CE9623 /* Main.storyboard */,
@@ -276,6 +279,7 @@
 				74364E89237B8903005AA90C /* MainViewController.swift in Sources */,
 				74DB798E23849E3E00DC80AB /* AnimatorFactory.swift in Sources */,
 				74364EA523834F36005AA90C /* ImageCoCell.swift in Sources */,
+				74DB79902384A3B500DC80AB /* Secrets.swift in Sources */,
 				74364EA223825F2C005AA90C /* Collections.swift in Sources */,
 				74364E90237C58CE005AA90C /* AppError.swift in Sources */,
 				74364E8D237C589B005AA90C /* NetworkHelper.swift in Sources */,
