@@ -25,6 +25,8 @@
 		74CF7730237B46F200CE9623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74CF772F237B46F200CE9623 /* Assets.xcassets */; };
 		74CF7733237B46F200CE9623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CF7731237B46F200CE9623 /* LaunchScreen.storyboard */; };
 		74CF773E237B46F200CE9623 /* FourSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CF773D237B46F200CE9623 /* FourSquareTests.swift */; };
+		74DB798C23849AE800DC80AB /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB798B23849AE800DC80AB /* ResultsTableViewCell.swift */; };
+		74DB798E23849E3E00DC80AB /* AnimatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		74CF7739237B46F200CE9623 /* FourSquareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSquareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CF773D237B46F200CE9623 /* FourSquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareTests.swift; sourceTree = "<group>"; };
 		74CF773F237B46F200CE9623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74DB798B23849AE800DC80AB /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		74364EA323834F00005AA90C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				74DB798B23849AE800DC80AB /* ResultsTableViewCell.swift */,
 				74364EA423834F36005AA90C /* ImageCoCell.swift */,
 			);
 			path = Cells;
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				74CF7726237B46EF00CE9623 /* AppDelegate.swift */,
+				74DB798D23849E3E00DC80AB /* AnimatorFactory.swift */,
 				74CF7728237B46EF00CE9623 /* SceneDelegate.swift */,
 				74364E9C237F6E84005AA90C /* Models */,
 				74CF772C237B46EF00CE9623 /* Main.storyboard */,
@@ -268,6 +274,7 @@
 				74364E9B237F6E7C005AA90C /* Locations.swift in Sources */,
 				74364E8B237B8953005AA90C /* CollectionViewController.swift in Sources */,
 				74364E89237B8903005AA90C /* MainViewController.swift in Sources */,
+				74DB798E23849E3E00DC80AB /* AnimatorFactory.swift in Sources */,
 				74364EA523834F36005AA90C /* ImageCoCell.swift in Sources */,
 				74364EA223825F2C005AA90C /* Collections.swift in Sources */,
 				74364E90237C58CE005AA90C /* AppError.swift in Sources */,
@@ -279,6 +286,7 @@
 				74364EA723835720005AA90C /* LocationsAPI.swift in Sources */,
 				74364EA023825EB0005AA90C /* ImageModel.swift in Sources */,
 				74364E9E23825AD6005AA90C /* Image.swift in Sources */,
+				74DB798C23849AE800DC80AB /* ResultsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

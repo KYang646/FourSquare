@@ -88,6 +88,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
+        searchField.text = "Enter location..."
         daMap.delegate = self
         daCollection.delegate = self
         daCollection.dataSource = self
@@ -159,6 +160,7 @@ extension MainViewController: UISearchBarDelegate {
 //    }
 //    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchField.text = ""
         searchField.showsCancelButton = true
         return true
     }
