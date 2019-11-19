@@ -5,10 +5,10 @@
 //  Created by Kimball Yang on 11/12/19.
 //  Copyright © 2019 Kimball Yang. All rights reserved.
 //
-
-import UIKit
 import MapKit
 import CoreLocation
+import Foundation
+import UIKit
 
 class MainViewController: UIViewController {
 
@@ -49,11 +49,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    var searchString: String? = nil {
-        didSet{
-            daMap.addAnnotations(locations.filter{ $0.hasValidCoordinates})
-        }
-    }
+//    var searchString: String? = nil {
+////        didSet{
+////            daMap.addAnnotations(locations.filter{ $0.hasValidCoordinates})
+////        }
+//    }
     
     
     private func locationAuthorization() {
@@ -87,13 +87,13 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchField.delegate = self
         daMap.delegate = self
         daCollection.delegate = self
         daCollection.dataSource = self
+//         locationManager.delegate = self
     }
-    
-    
+ 
 
 }
 
@@ -106,6 +106,7 @@ extension MainViewController: MKMapViewDelegate {
     
 }
 
+    //MARK: Populating cells
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -144,7 +145,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-    return CGSize(width: 135, height: 135)
+    return CGSize(width: 200, height: 200)
 }
     
     
@@ -153,10 +154,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     //MARK: SearchBar delegates
 extension MainViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchString = searchText
-    }
-    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchString = searchText
+//    }
+//    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchField.showsCancelButton = true
         return true
@@ -210,6 +211,10 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = searchField.text
+        UIView.transition(with: locLabel, duration: 0.5, options: [.transitionFlipFromRight], animations: {
+            self.locLabel.text = self.searchField.text
+        }, completion: nil)
+        
         let activeSearch = MKLocalSearch(request: searchRequest)
         activeSearch.start { (response, error) in
             if response == nil {
@@ -218,6 +223,7 @@ extension MainViewController: UISearchBarDelegate {
                 let lat = response?.boundingRegion.center.latitude
                 let lng = response?.boundingRegion.center.longitude
                 self.currentLatLng = "\(lat!),\(lng!)"
+                
                 self.daMap.removeAnnotations(self.daMap.annotations)
                 self.annotations.removeAll()
                 self.loadData(search: self.searchField.text!, latLng: self.currentLatLng)

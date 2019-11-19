@@ -20,15 +20,15 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Location Label, USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-74-DJ8">
-                                <rect key="frame" x="6" y="96" width="282" height="36"/>
+                                <rect key="frame" x="8" y="99" width="282" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="xsV-nd-Pcb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <size key="shadowOffset" width="1" height="1"/>
+                                <size key="shadowOffset" width="2" height="2"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-Pv-Nkt">
                                 <rect key="frame" x="362" y="51" width="52" height="42"/>
@@ -61,7 +61,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="imageCell" id="Gj4-TV-1Ee" customClass="ImageCoCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="imageCell" id="Gj4-TV-1Ee" customClass="ImageCoCell" customModule="FourSquare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2.5" width="123" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M0n-13-ld3">
@@ -76,7 +76,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="123" height="123"/>
                                         <connections>
-                                            <outlet property="coImage" destination="xAt-lN-Sep" id="3Ue-l1-d5B"/>
+                                            <outlet property="coImage" destination="xAt-lN-Sep" id="MhQ-Ec-lSk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -103,7 +103,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="56b-pH-wXF"/>
                     <connections>
-                        <outlet property="daCollection" destination="CV5-x6-zhD" id="Fzb-WQ-yq1"/>
+                        <outlet property="daCollection" destination="CV5-x6-zhD" id="JFw-Ce-Fkv"/>
                         <outlet property="daMap" destination="kWW-pX-fzq" id="Dws-Tr-Gdz"/>
                         <outlet property="listButton" destination="LGu-Pv-Nkt" id="qvV-8a-Fb0"/>
                         <outlet property="locLabel" destination="XLq-74-DJ8" id="t7A-yb-Ahv"/>

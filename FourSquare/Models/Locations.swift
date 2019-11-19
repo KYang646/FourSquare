@@ -39,9 +39,6 @@ class Location: NSObject, Codable, MKAnnotation{
         return CLLocationCoordinate2D()
      }
     
-    var hasValidCoordinates: Bool {
-        return coordinate.latitude != 0 && coordinate.longitude != 0
-    }
     static func getVenues(from jsonData: Data) -> Venues? {
            do {
                let data = try JSONDecoder().decode(Venues.self, from: jsonData)
